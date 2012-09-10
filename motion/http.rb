@@ -287,7 +287,7 @@ Cache policy: #{@cache_policy}, response: #{@response.inspect} >"
         @files.each do |key, value|
           file_data = NSMutableData.new
           s = "--#{@boundary}\r\n"
-          s += "Content-Disposition: form-data; name=\"#{key}\"; filename=\"#{key}\"\r\n"
+          s += "Content-Disposition: form-data; name=\"files[]\"; filename=\"#{key}\"\r\n"
           s += "Content-Type: application/octet-stream\r\n\r\n"
           file_data.appendData(s.dataUsingEncoding NSUTF8StringEncoding)
           file_data.appendData(value)
